@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Banking System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <h1>Banking System</h1>
+      <span id="userBadge" class="badge">Not signed in</span>
+    </header>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab tab-customer active" role="tab" data-tab="customer">Customer</button>
+      <button class="tab tab-bank" role="tab" data-tab="bank">Bank</button>
+    </nav>
+
+    <main id="panel" class="panel panel-customer"></main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
