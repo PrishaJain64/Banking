@@ -1,15 +1,7 @@
-"""Web front-end server for the banking system.
-
-Run:  python server.py     then open  http://localhost:8000
-
-It re-uses the existing banking modules (config, models, transactionsOps, loanOps ...)
-exactly as the console menu does. main.py (the console version) still works as before.
-Uses only the Python standard library.
-"""
 import json
 import os
 from datetime import datetime
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, HTTPServer,SimpleHTTPRequestHandler
 
 import config
 import utils
@@ -339,6 +331,10 @@ class Handler(BaseHTTPRequestHandler):
         pass
 
 
+
 if __name__ == "__main__":
-    print(f"Banking UI running at http://localhost:{PORT}  (Ctrl+C to stop)")
-    HTTPServer(("127.0.0.1", PORT), Handler).serve_forever()
+    port = int(os.environ.get("PORT", 10000))
+    server = HTTPServer(("0.0.0.0", port), Handler)
+    print(f"Banking server running on port {port}")
+    server.serve_forever()
+
